@@ -1,0 +1,50 @@
+public interface arm { // interface for abstract class 
+    public void arms();
+}
+
+-------
+
+
+
+import java.util.Scanner;
+
+
+public class armstrong extends primenum implements arm  { // inheriting class and implementing interface
+   
+    Scanner sc =new  Scanner(System.in); //for user input
+    public static void main(String []args) {
+        armstrong obj=new armstrong(); //object creation
+       obj.call(); //call the fuction
+    }
+
+    public void call(){ //creating a function where both fuction place
+        prime();
+        arms();
+    }
+    public void arms(){ // creating a function to perform an amstrong num
+        System.out.println("Enter your 3 digit numbre");
+        int n=sc.nextInt();
+              int temp=n;
+
+               int sum=0;
+         while(n>0){
+        
+        int r=n%10;   // seperating the 3 digit 
+        
+        sum=sum+r*r*r;  //storeing the sum of all 3 digit 
+        n=n/10;
+         }
+         
+         if(sum==temp){  // sum and temp mean which value user inter ealier is equal then it fill print
+            System.out.println("This is an armstrong number");
+         }
+         else{
+            System.out.println("This is not an armstrong");
+         }
+        
+        }
+
+
+        
+    
+}

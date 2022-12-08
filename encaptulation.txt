@@ -1,0 +1,136 @@
+encapculation private key class---------
+private int ac_no,pin,balance;
+	
+	public void set_ac_no(int ac_no) {
+		this.ac_no = ac_no;
+	}
+	public int get_ac_no() {
+		return this.ac_no;
+	}
+	public void set_pin(int pin) {
+		this.pin = pin;
+	}
+	public int get_pin() {
+		return pin;
+	}
+
+	public void set_balance(int balance) {
+		this.balance = balance;
+	}
+	public int get_balance() {
+		return balance;
+	}
+--------------------
+abstract class abstract method------
+
+ 	abstract void creating_ac();
+	abstract void login();
+	abstract void main_stuff();
+-----------------------------
+interface of accept details----
+
+	public void acceptDetails();
+------------------------------------
+bank system tool kit----------
+public class Bank_System {
+	
+	public static void main(String[] args) {
+		char chance;
+		do {
+			System.out.println("Welcome HDFC BANK Website.....\n");
+			Scanner scan = new Scanner(System.in);  
+			System.out.println("If you want to create an account press[c]....\nIf you want to login press[l]....");
+			char choice = scan.next().charAt(0);
+			if (choice == 'c') {
+				creating_ac();
+			}
+			else if(choice=='l'){ //ID:perumal4u & password:3117 
+				login();
+			}
+			System.out.println("If you want to continue in the website press[y] or press[n]");
+			chance = scan.next().charAt(0);
+		}while(chance=='y');
+
+	}
+	static void creating_ac() {
+		
+		System.out.println("Welcome to HDFC Bank.....");
+		System.out.println("To create an account fill the Requirments below :)");
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter your name:");
+		String name = scan.nextLine();
+		System.out.print("Enter your contact number:");
+		long num = scan.nextLong();
+		System.out.println("Types of account:\n1:Saving Account\n2:Current Account");
+		System.out.println("Choose the Desired Account:\nFor Saving account press[s]\nFor Current account press[c]");
+		char ac_type = scan.next().charAt(0);
+		
+		System.out.println("You have Sucessfully created an account:");
+		System.out.println("Account Details....");
+		System.out.println("Name:"+name);
+		System.out.println("Contact number:"+num);
+		System.out.println("Account number:xxxxxxxxxxx4567");
+		if(ac_type == 's'){
+			System.out.println("Account type:Saving....");
+		}
+		else if(ac_type == 'c') {
+			System.out.println("Account type:Current....");
+		}
+		main_stuff();
+		
+	}
+	static void login() {
+		
+		String id = "perumal4u";
+		String pass = "3117";
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Welcome HDFC BANK Website.....\n");
+		System.out.print("Account ID:");
+		String ac_id = scan.nextLine();
+		System.out.print("Enter the password:");
+		String key = scan.nextLine();
+		if (id.equals(ac_id) && pass.equals(key)) {
+			main_stuff();
+		}
+		else {
+			System.out.println("Invalid ID or Password....");
+		}
+		
+	}
+	static void main_stuff() {
+		
+		char chance;
+		do {
+			int balance = 10000;
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Options:\nFor Crediting Money in Account Press[c]....\nFor WithDrawing Money in Account Press[d]....\nFor Checking Balance in Account Press[b]....");
+			System.out.println("For Exiting the process press[x]....");
+			char input = scan.next().charAt(0);
+			if(input == 'c') {
+				System.out.print("Enter the crediting Amount:");
+				int credit = scan.nextInt();
+				balance += credit;
+				System.out.println("Total balance Available:"+balance);
+			}
+			else if(input == 'd'){
+				System.out.print("Enter the Withdrawing Amount:");
+				int debit = scan.nextInt();
+				balance -= debit;
+				System.out.println("Total balance Available:"+balance);
+			}
+			else if(input == 'b'){
+				System.out.println("Total Balance:"+balance);
+			}
+			else if(input == 'x'){
+				System.out.println("Are you sure to exit press[x]");
+				chance = scan.next().charAt(0);
+			}
+			else {
+				System.out.println("There is no such option Read the instruction properly.....");
+			}
+			System.out.println("If you want to continue press[y] or press[n]");
+			chance = scan.next().charAt(0);
+		}while(chance=='y'||chance == 'x');
+		System.out.println("Thanks for Visiting\nHave a Nice Day!");
+	}
+}

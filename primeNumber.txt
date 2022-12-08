@@ -1,0 +1,22 @@
+/* write a program to to print a prime number 1 to 1000 and performance a program to check Armstrong from taking a user input
+*/
+
+
+ public  abstract class primenum { // class for prime number code
+   
+	int num,i;
+public void prime() {
+	for(num=1;num<=1000;num++) { // loop fo 1 to 1000
+	
+		for(i=2;i<1000;i++) { // division
+			if(num%i==0) {  
+				break;
+			}
+		}
+		if(i==num) { // num and division value same  it will print if statement
+	System.out.print(num);	
+		}	
+	}
+}
+
+}
